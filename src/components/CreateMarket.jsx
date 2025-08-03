@@ -64,7 +64,7 @@ export function CreateMarketWithWSOL() {
           onClick={() => createMarket(address, decimal)}
           className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-colors"
         >
-          Create CP Liquidity Market
+          Create CP Liquidity Pool
         </button>
       </div>
     </div>

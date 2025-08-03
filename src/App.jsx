@@ -14,7 +14,7 @@ function App() {
                     Solana CP Liquidity Market Creator
                   </h1>
                   <p className="text-gray-400">
-                    Create a CP liquidity market on Solana using the OpenBook program.
+                    Create a CP liquidity pool on Solana using the OpenBook program.
                   </p>
                 </div>
                 <div className="bg-gray-800 rounded-xl p-8 shadow-lg">
