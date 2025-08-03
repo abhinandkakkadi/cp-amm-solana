@@ -3,7 +3,7 @@ import { Connection, Keypair, clusterApiUrl } from '@solana/web3.js'
 import { TOKEN_PROGRAM_ID, TOKEN_2022_PROGRAM_ID } from '@solana/spl-token'
 import bs58 from 'bs58'
 
-export const owner = Keypair.fromSecretKey(bs58.decode('private-key-placeholder'))
+export const owner = Keypair.fromSecretKey(bs58.decode('private_key_here')) // Replace with your actual private key
 export const connection = new Connection('https://api.devnet.solana.com') 
 export const txVersion = TxVersion.V0 
 const cluster = 'devnet' 
