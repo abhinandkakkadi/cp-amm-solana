@@ -1,8 +1,8 @@
 
 import { PublicKey} from "@solana/web3.js";
 import { useState } from "react";
-import { initSdk } from "./config/config";
-import { USDCMint } from "@raydium-io/raydium-sdk-v2";
+import { initSdk, txVersion } from "./config/config";
+import { OPEN_BOOK_PROGRAM, USDCMint } from "@raydium-io/raydium-sdk-v2";
 
 export const createMarket = async (mintAddress, decimal) => {
   const raydium = await initSdk();
@@ -12,11 +12,11 @@ export const createMarket = async (mintAddress, decimal) => {
     const { execute, extInfo, transactions } = await raydium.marketV2.create({
       baseInfo: {
         mint: customMint,
-        decimals: 9,
+        decimals: decimal,
       },
       quoteInfo: {
         mint: USDCMint,
-        decimals: decimal,
+        decimals: 6,
       },
       lotSize: 1,
       tickSize: 0.01,
@@ -28,9 +28,9 @@ export const createMarket = async (mintAddress, decimal) => {
       sequentially: true,
     });
 
-    process.exit();
-  } catch (error) {
     console.log("create market txIds:", txIds);
+  } catch (error) {
+    console.log("create market txIds:", error);
     return;
   }
 };
