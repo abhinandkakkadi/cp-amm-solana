@@ -2,7 +2,7 @@
 import { PublicKey} from "@solana/web3.js";
 import { useState } from "react";
 import { initSdk, txVersion } from "./config/config";
-import { OPEN_BOOK_PROGRAM, USDCMint } from "@raydium-io/raydium-sdk-v2";
+import { DEVNET_PROGRAM_ID, OPEN_BOOK_PROGRAM, USDCMint } from "@raydium-io/raydium-sdk-v2";
 
 export const createMarket = async (mintAddress, decimal) => {
   const raydium = await initSdk();
@@ -20,7 +20,7 @@ export const createMarket = async (mintAddress, decimal) => {
       },
       lotSize: 1,
       tickSize: 0.01,
-      dexProgramId: OPEN_BOOK_PROGRAM,
+      dexProgramId: DEVNET_PROGRAM_ID.OPEN_BOOK_PROGRAM,
       txVersion,
     });
 
@@ -29,6 +29,8 @@ export const createMarket = async (mintAddress, decimal) => {
     });
 
     console.log("create market txIds:", txIds);
+    console.log('Market ID:', extInfo.address.marketId.toBase58())
+
   } catch (error) {
     console.log("create market txIds:", error);
     return;
