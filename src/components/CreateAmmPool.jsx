@@ -12,7 +12,7 @@ import {
   
   export const createAmmPool = async () => {
     const raydium = await initSdk()
-    const marketId = new PublicKey(`<you market id here>`)
+    const marketId = new PublicKey(`market-id`)
   
     const marketBufferInfo = await raydium.connection.getAccountInfo(new PublicKey(marketId))
     const { baseMint, quoteMint } = MARKET_STATE_LAYOUT_V3.decode(marketBufferInfo?.data)
